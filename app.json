@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "Pack Express Uruguay",
+    "slug": "packexpress_movil",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icono.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icono.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.eduardobt9406.packmovil"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "4d43e616-a73c-4711-97ff-f002b33ed164"
+      }
+    }
+  }
+}
