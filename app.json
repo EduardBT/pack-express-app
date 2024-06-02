@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Pack Express Uruguay",
-    "slug": "packexpress_movil",
+    "slug": "pack-express-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icono.png",
@@ -27,7 +27,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "4d43e616-a73c-4711-97ff-f002b33ed164"
+        "projectId": "9199882f-07ee-4633-9a33-7db64078ad34"
       }
     }
   }
