@@ -11,8 +11,7 @@
       "distribution": "internal",
       "android": {
         "buildType": "apk"
-      },
-      "icon": "./assets/icono.png"
+      }
     },
     "production": {
       "sdkVersion": "49.0.0"
