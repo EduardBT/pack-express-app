@@ -18,7 +18,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icono.png",
+        "foregroundImage": "./assets/iconoD.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.eduardobt9406.packmovil"
