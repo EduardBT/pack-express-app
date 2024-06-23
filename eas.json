@@ -10,7 +10,8 @@
     "preview": {
       "distribution": "internal",
       "android": {
-        "buildType": "apk"
+        "buildType": "apk", // Ahora se define como "apk"
+        "bundle": true, // Crea un Android App Bundle
       }
     },
     "production": {}
