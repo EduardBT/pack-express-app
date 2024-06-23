@@ -5,7 +5,7 @@
     "slug": "pack-express-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/iconoD.png",
+    "icon": "./assets/icono.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash2.png",
@@ -18,7 +18,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/iconoD.png",
+        "foregroundImage": "./assets/icono.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.eduardobt9406.packmovil"
