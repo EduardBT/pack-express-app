@@ -22,15 +22,15 @@ const Remesas = () => {
 
       if (monedaPago === "usd") {
         if (monedaRecibe === "cup") {
-          recibeValue = parseFloat(pago) * 40 * 7 + " CUP";
+          recibeValue = parseFloat(pago) * 41 * 7.5 + " CUP";
         } else {
           recibeValue = parseFloat(pago) + " MLC";
         }
       } else {
         if (monedaRecibe === "mlc") {
-          recibeValue = parseInt(parseFloat(pago) / 40) + " MLC";
+          recibeValue = parseInt(parseFloat(pago) / 41) + " MLC";
         } else {
-          recibeValue = parseFloat(pago) * 7 + " CUP";
+          recibeValue = parseFloat(pago) * 7.5 + " CUP";
         }
       }
 

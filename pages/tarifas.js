@@ -32,32 +32,14 @@ const Tarifas = () => {
         let costoKg;
 
         const redondearCercano = (numero) => {
-          // Calcula la diferencia con el número inferior, superior y el valor intermedio
-          const diferenciaInferior = Math.abs(numero - Math.floor(numero));
+          // Calcula la diferencia con el número superior
           const diferenciaSuperior = Math.abs(numero - Math.ceil(numero));
-          const diferenciaMedio = Math.abs(numero - (Math.floor(numero) + 0.5));
 
-          // Compara las diferencias y redondea al más cercano
-          if (numero < 25) {
-            if (
-              diferenciaInferior <= diferenciaSuperior &&
-              diferenciaInferior <= diferenciaMedio
-            ) {
-              return Math.floor(numero);
-            } else if (
-              diferenciaSuperior <= diferenciaInferior &&
-              diferenciaSuperior <= diferenciaMedio
-            ) {
-              return Math.ceil(numero);
-            } else {
-              return Math.floor(numero) + 0.5; // Redondea al valor intermedio
-            }
+          // Redondea hacia arriba si la diferencia es menor o igual a 0.5 y el número no termina en .5
+          if (diferenciaSuperior <= 0.5 && numero % 1 !== 0.5) {
+            return Math.ceil(numero);
           } else {
-            if (diferenciaInferior <= diferenciaSuperior) {
-              return Math.floor(numero);
-            } else {
-              return Math.ceil(numero);
-            }
+            return numero; // Si el número termina en .5, no se modifica
           }
         };
 
@@ -163,8 +145,8 @@ const Tarifas = () => {
         >
           <Picker.Item label="Seleccionar País" value="" />
           <Picker.Item label="Cuba" value="Cuba" />
-          <Picker.Item label="Venezuela" value="Venezuela" />
-          <Picker.Item label="Estados Unidos" value="Estados Unidos" />
+          {/* <Picker.Item label="Venezuela" value="Venezuela" />
+          <Picker.Item label="Estados Unidos" value="Estados Unidos" /> */}
         </Picker>
       </View>
       {tipoPeso === "real" && (
