@@ -16,7 +16,6 @@ const Tarifas = () => {
   const [altura, setAltura] = useState("");
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [showErrorMessagePV, setShowErrorMessagePV] = useState(false);
-
   const handleCalcular = async () => {
     try {
       if (pais == "Cuba") {
@@ -29,20 +28,29 @@ const Tarifas = () => {
         const data = await response.json();
         const valores = data;
         let kg;
+
         let costoKg;
-
         const redondearCercano = (numero) => {
-          // Calcula la diferencia con el número superior
-          const diferenciaSuperior = Math.abs(numero - Math.ceil(numero));
+          // Obtén la parte entera del número
+          const parteEntera = Math.floor(numero);
 
-          // Redondea hacia arriba si la diferencia es menor o igual a 0.5 y el número no termina en .5
-          if (diferenciaSuperior <= 0.5 && numero % 1 !== 0.5) {
-            return Math.ceil(numero);
-          } else {
-            return numero; // Si el número termina en .5, no se modifica
+          // Calcula la parte decimal
+          const parteDecimal = numero - parteEntera;
+          console.log(parteDecimal);
+          // Si la parte decimal está entre 0.1 y 0.4 (incluyendo 0.4), redondea a 0.5
+          if (parteDecimal >= 0.09999 && parteDecimal <= 0.4) {
+            return parteEntera + 0.5;
+          }
+          // Si la parte decimal está entre 0.6 y 0.8, redondea a 1 (sumando 1 a la parte entera)
+          else if (parteDecimal >= 0.5999999 && parteDecimal <= 0.8) {
+            return parteEntera + 1;
+          }
+          // De lo contrario, devuelve el número original
+          else {
+            return numero;
           }
         };
-
+        console.log(redondearCercano(peso));
         for (let i = 0; i < valores.length; i++) {
           if (valores[i]["Kg"] == redondearCercano(peso)) {
             kg = peso;
