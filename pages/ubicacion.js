@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import MapView, { Marker, Callout } from "react-native-maps";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import CouruselImage from "./imagenesPack";
 
 const destination = {
   latitude: -34.90737,
@@ -81,7 +80,6 @@ export default function UbicacionScreen() {
           <MaterialIcons name="my-location" size={30} color="white" />
         </TouchableOpacity>
       </View>
-      <CouruselImage />
     </>
   );
 }
