@@ -22,6 +22,7 @@ import { MaterialIcons } from "react-native-vector-icons";
 import UbicacionScreen from "./pages/ubicacion";
 import Tarifas from "./pages/tarifas";
 import Remesas from "./pages/remasas";
+import Puntos_Canjeo from "./pages/puntos_canjeo";
 import { Table, Row } from "react-native-table-component";
 
 function HomeScreen() {
@@ -404,6 +405,28 @@ function HomeScreen() {
 const Drawer = createDrawerNavigator();
 
 const CustomDrawerContent = (props) => {
+  const destination = {
+    latitude: -34.90737,
+    longitude: -56.18882,
+  };
+
+  const handleGetDirections = () => {
+    const directionsURL = `https://www.google.com/maps/dir/?api=1&destination=${destination.latitude},${destination.longitude}&travelmode=driving`;
+
+    Linking.canOpenURL(directionsURL)
+      .then((supported) => {
+        if (supported) {
+          Linking.openURL(directionsURL);
+        } else {
+          Alert.alert("Error", "No se puede abrir la aplicación de mapas");
+        }
+      })
+      .catch((error) => {
+        console.error("Error al obtener las direcciones", error);
+        Alert.alert("Error", "Ocurrió un error al obtener las direcciones");
+      });
+  };
+
   const handlePhonePress = () => {
     const phoneNumber = "+59893594297";
     const message = "¡Hola! Necesito información de sus servicios.";
@@ -441,6 +464,10 @@ const CustomDrawerContent = (props) => {
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
       <View style={{ paddingHorizontal: 16 }}>
+        <TouchableOpacity style={styles.button} onPress={handleGetDirections}>
+          <MaterialIcons name="location-on" size={24} color="black" />
+          <Text style={styles.buttonText}>Ubicación</Text>
+        </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={handlePhonePress}>
           <MaterialIcons name="phone-android" size={24} color="black" />
           <Text style={styles.buttonText}> 093 594 297</Text>
@@ -498,6 +525,15 @@ export default function App() {
             }}
           />
           <Drawer.Screen
+            name="Puntos Acumulados"
+            component={Puntos_Canjeo}
+            options={{
+              drawerIcon: ({ color, size }) => (
+                <MaterialIcons name="person-search" size={size} color={color} />
+              ),
+            }}
+          />
+          {/* <Drawer.Screen
             name="Ubicación"
             component={UbicacionScreen}
             options={{
@@ -505,7 +541,7 @@ export default function App() {
                 <MaterialIcons name="location-on" size={size} color={color} />
               ),
             }}
-          />
+          /> */}
           <Drawer.Screen
             name="Tarifas"
             component={Tarifas}
